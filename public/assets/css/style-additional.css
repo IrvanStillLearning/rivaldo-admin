@@ -1,0 +1,117 @@
+.no-padding{
+    padding: 0!important;
+    margin: 0!important;
+}
+
+#darkmode-label{
+    width:50px;
+  height:20px;
+  position: relative;
+  display: block;
+  background: #ebebeb;
+  border-radius: 20px;
+  box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+  cursor: pointer;
+}
+#darkmode-label:after {
+  content: "";
+  width:18px;
+  height: 18px;
+  position: absolute;
+  top:1px;
+  left:1px;
+  background: linear-gradient(180deg,#ffcc89,#d8860b);
+  border-radius: 180px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+#darkmode-toggle {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+#darkmode-toggle:checked + #darkmode-label {
+  background: #242424;
+}
+#darkmode-toggle:checked + #darkmode-label:after {
+  left:49px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg,#777,#3a3a3a);
+}
+#darkmode-label, #darkmode-label:after {
+  transition: 0.6s
+}
+#darkmode-label:active:after{ 
+  width: 26px; 
+}
+#darkmode-label i {
+  position: absolute;
+  width: 12px;
+  top:4px;
+  z-index: 100;
+}
+#darkmode-label .fa-sun {
+  left:4px;
+  color:#fff;
+  transition: 0.3s;
+}
+#darkmode-label .fa-moon {
+  left:34px;
+  color:#7e7e7e;
+  transition: 0.3s;
+}
+#darkmode-toggle:checked + #darkmode-label .fa-sun {
+  color:#7e7e7e;
+}
+#darkmode-toggle:checked + #darkmode-label .fa-moon {
+  color:#fff;
+}
+
+.shadow-bottom{
+    box-shadow: 0 1px 8px #ececec;
+}
+
+.fa-times {
+    -webkit-animation: blink-1 2s infinite both;
+	        animation: blink-1 2s infinite both;
+}
+
+
+.toast-notification .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+}
+
+.toast-notification .progress::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;;
+    animation: progress 15s linear forwards;
+}
+
+.toast-notification .progress::before{background-color: #000;}
+.toast-notification .progress_error{background-color: #fc544b;}
+.toast-notification .progress_success{background-color: #47c363;}
+
+@keyframes progress{
+    100%{
+        right: 100%;
+    }
+}
+
+@keyframes blink-1 {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
